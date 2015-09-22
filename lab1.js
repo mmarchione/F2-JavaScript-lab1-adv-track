@@ -58,6 +58,12 @@ assert(1 === 2, 'this is an example of a failing assertion. 1 does not equal 2.'
 */
 
 //your code goes here
+var lion = 'Lion';
+var monkeys = 'Monkeys';
+var chimps = 'Chimps';
+
+assert(lion === lion, 'a Lion, is a Lion, is a Lion');
+assert(monkeys === chimps, 'Monkeys have a tail, Chimps do not');
 
 /* ========================================================================
 ----------------- Meerkats (20 points total)-------------------------------
@@ -78,11 +84,40 @@ var sentence2 = 'Come over here so you can scratch my belly.';
 // 'chirp' (10 points)
 
 // your code goes here
+var sentence1Array = sentence1.split(' ');
+for (var i = 0; i < sentence1Array.length; i++) {
+  if (i < 1) {
+    sentence1Array[i] = 'chirp';
+  }
+  else if (i < 2) {
+    sentence1Array[i] = ' chirp';
+  }
+  else {
+    sentence1Array[i] = ' chirp.';
+  }
+}
+sentence1 = sentence1Array.join('');
 
 // TODO: part #2: use a while or do-while loop to replace the words in sentence 2
 // with 'chirp' (10 points)
 
 // your code goes here
+var sentence2Array = sentence2.split(' ');
+var j = 0;
+do {
+  if (j < 1) {
+    sentence2Array[j] = 'chirp';
+    }
+  else if (j < 8) {
+    sentence2Array[j] = ' chirp';
+    }
+  else {
+    sentence2Array[j] = ' chirp.';
+  }
+  j++;
+}
+while (j < sentence2Array.length);
+sentence2 = sentence2Array.join('');
 
 // Leave these assertions as-is! If they pass, your code works.
 assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
@@ -103,8 +138,9 @@ var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
-
 // your code goes here
+var myChoice = Math.floor((Math.random() * 4));
+nextAnimal = favoriteAnimals[myChoice];
 
 assert(nextAnimal, 'assign something to nextAnimal');
 
@@ -123,7 +159,7 @@ assert(nextAnimal, 'assign something to nextAnimal');
 // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
 var tooHungryDay;
-
+var i = 0;
 /*
  TODO: 20 points
  Cycle through the days in mealsPerDay. At each day, print out the average
@@ -134,6 +170,17 @@ var tooHungryDay;
 */
 
 // your code goes here
+var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
+var daysOfEnoughFood = [];
+var i = 0;
+do
+{
+  mealsPerDay[i] += daysOfEnoughFood;
+  i++;
+}
+while (mealsPerDay[i] > 3);
+
+var tooHungryDay = i;
 
 assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
 assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
